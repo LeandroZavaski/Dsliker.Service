@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Web": {
+    "Dsliker.Service.Web": {
       "commandName": "Project",
       "launchBrowser": false,
       "launchUrl": "swagger",

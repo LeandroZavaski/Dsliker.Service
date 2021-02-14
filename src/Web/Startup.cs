@@ -32,7 +32,7 @@ namespace Web
             // swagger
             services.AddSwaggerGen(swagger =>
             {
-                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "My API" });
+                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "Dsliker API" });
             });
             services.AddSwaggerGenNewtonsoftSupport();
 
