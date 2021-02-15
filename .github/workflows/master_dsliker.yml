@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@master
@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'dsliker'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_bf4d95e7b34c42ed9e4b5100e08821d8 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_09de1ac2ae49416ab184788d08d57db4 }}
         package: ${{env.DOTNET_ROOT}}/myapp 
