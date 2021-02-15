@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'dsliker'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_09de1ac2ae49416ab184788d08d57db4 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d50cc1c20c2f42a891c8a133f2b0a648 }}
         package: ${{env.DOTNET_ROOT}}/myapp 
