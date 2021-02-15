@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Web.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("v1/[controller]")]
     [Produces("application/json")]
     [EnableCors("AllowSpecificOrigin")]
     public class OpinionController : ControllerBase
