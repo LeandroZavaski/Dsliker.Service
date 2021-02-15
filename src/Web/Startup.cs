@@ -68,7 +68,12 @@ namespace Web
 
             app.UseRouting();
 
-            app.UseCors(option => option.AllowAnyOrigin());
+            // global cors policy
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
 
             app.UseAuthorization();
 
