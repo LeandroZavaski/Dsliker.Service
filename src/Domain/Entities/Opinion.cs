@@ -6,7 +6,6 @@ namespace Domain.Entities
 {
     public class Opinion
     {
-        [JsonIgnore]
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
