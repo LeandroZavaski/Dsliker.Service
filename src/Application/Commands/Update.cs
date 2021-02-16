@@ -7,9 +7,9 @@ namespace Application.Commands
     {
         public string Id { get; set; }
 
-        public Opinion Opinion { get; set; }
+        public Description Opinion { get; set; }
 
-        public Update(string id, Opinion opinion)
+        public Update(string id, Description opinion)
         {
             Id = id;
             Opinion = opinion;

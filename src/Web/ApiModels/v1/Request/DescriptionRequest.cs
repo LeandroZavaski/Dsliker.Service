@@ -1,9 +1,10 @@
 ﻿using Domain.Entities;
+using System;
 using System.Text.Json.Serialization;
 
 namespace Web.ApiModels.v1.Request
 {
-    public class OpinionRequest
+    public class DescriptionRequest
     {
         [JsonIgnore]
         public string Id { get; set; }
@@ -11,18 +12,18 @@ namespace Web.ApiModels.v1.Request
 
         public string Url { get; set; }
 
-        public string Description { get; set; }
+        public string Text { get; set; }
 
         public string Type { get; set; }
 
         public UrlInfoRequest UrlInfo { get; set; }
 
-        public static implicit operator Opinion(OpinionRequest opn)
+        public static implicit operator Description(DescriptionRequest opn)
         {
-            return opn is null ? null : new Opinion()
+            return opn is null ? null : new Description()
             {
-                Id = opn.Id,
-                Description = opn.Description,
+                Id = string.IsNullOrWhiteSpace(opn.Id) ? Guid.NewGuid().ToString() : opn.Id,
+                Text = opn.Text,
                 Fingerprint = opn.Fingerprint,
                 Type = opn.Type,
                 Url = opn.Url,

@@ -4,5 +4,5 @@ using System.Collections.Generic;
 
 namespace Application.Queries
 {
-    public class GetAll : IRequest<List<Opinion>> { }
+    public class GetAll : IRequest<List<Description>> { }
 }

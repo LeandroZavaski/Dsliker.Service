@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.QueriesHandler
 {
-    public class GetByIdhandler : IRequestHandler<GetById, Opinion>
+    public class GetByIdhandler : IRequestHandler<GetById, Description>
     {
         private readonly IDslikerRepository _repository;
 
@@ -16,7 +16,7 @@ namespace Application.QueriesHandler
             _repository = repository;
         }
 
-        public async Task<Opinion> Handle(GetById request, CancellationToken cancellationToken)
+        public async Task<Description> Handle(GetById request, CancellationToken cancellationToken)
         {
             return await _repository.GetByIdAsync(request.Id);
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.CommandsHandler
 {
-    public class CreateHandler : IRequestHandler<Create, Opinion>
+    public class CreateHandler : IRequestHandler<Create, Description>
     {
         private readonly IDslikerRepository _repository;
 
@@ -16,7 +16,7 @@ namespace Application.CommandsHandler
             _repository = repository;
         }
 
-        public async Task<Opinion> Handle(Create request, CancellationToken cancellationToken)
+        public async Task<Description> Handle(Create request, CancellationToken cancellationToken)
         {
             return await _repository.CreateAsync(request.Opinion);
         }

@@ -13,11 +13,11 @@ namespace Web.Controllers.v1
     [Route("v1/[controller]")]
     [Produces("application/json")]
     [EnableCors("AllowSpecificOrigin")]
-    public class OpinionController : ControllerBase
+    public class DescriptionController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public OpinionController(IMediator mediator)
+        public DescriptionController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -45,7 +45,7 @@ namespace Web.Controllers.v1
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(OpinionRequest opinion)
+        public async Task<IActionResult> Post(DescriptionRequest opinion)
         {
             var response = await _mediator.Send(new Create(opinion));
 
@@ -56,7 +56,7 @@ namespace Web.Controllers.v1
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(string id, OpinionRequest opinion)
+        public async Task<IActionResult> Put(string id, DescriptionRequest opinion)
         {
             opinion.Id = id;
             await _mediator.Send(new Update(id, opinion));

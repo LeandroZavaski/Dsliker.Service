@@ -3,11 +3,11 @@ using MediatR;
 
 namespace Application.Commands
 {
-    public class Create : IRequest<Opinion>
+    public class Create : IRequest<Description>
     {
-        public Opinion Opinion { get; set; }
+        public Description Opinion { get; set; }
 
-        public Create(Opinion opinion)
+        public Create(Description opinion)
         {
             Opinion = opinion;
         }
