@@ -8,43 +8,43 @@ namespace Repository.Services
 {
     public class DslikerRepository : IDslikerRepository
     {
-        private readonly IMongoCollection<Opinion> _opinion;
+        private readonly IMongoCollection<Description> _description;
 
         public DslikerRepository(IDslikerDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _opinion = database.GetCollection<Opinion>(settings.DslikerCollectionName);
+            _description = database.GetCollection<Description>(settings.DslikerCollectionName);
         }
 
-        public Task<List<Opinion>> GetAsync() =>
-                        Task.FromResult(_opinion.Find(book => true).ToList());
+        public Task<List<Description>> GetAsync() =>
+                        Task.FromResult(_description.Find(book => true).ToList());
 
-        public Task<Opinion> GetByIdAsync(string id) =>
-                        Task.FromResult(_opinion.Find<Opinion>(book => book.Id == id).FirstOrDefault());
+        public Task<Description> GetByIdAsync(string id) =>
+                        Task.FromResult(_description.Find<Description>(book => book.Id == id).FirstOrDefault());
 
-        public Task<Opinion> CreateAsync(Opinion opinion)
+        public Task<Description> CreateAsync(Description description)
         {
-            _opinion.InsertOne(opinion);
-            return Task.FromResult(opinion);
+            _description.InsertOne(description);
+            return Task.FromResult(description);
         }
 
-        public Task UpdateAsync(string id, Opinion opinionIn)
+        public Task UpdateAsync(string id, Description descriptionIn)
         {
-            _opinion.ReplaceOne(book => book.Id == id, opinionIn);
+            _description.ReplaceOne(book => book.Id == id, descriptionIn);
             return Task.CompletedTask;
         }
 
-        public Task RemoveAsync(Opinion opinionIn)
+        public Task RemoveAsync(Description descriptionIn)
         {
-            _opinion.DeleteOne(book => book.Id == opinionIn.Id);
+            _description.DeleteOne(book => book.Id == descriptionIn.Id);
             return Task.CompletedTask;
         }
 
         public Task RemoveByIdAsync(string id)
         {
-            _opinion.DeleteOne(book => book.Id == id);
+            _description.DeleteOne(book => book.Id == id);
             return Task.CompletedTask;
         }
     }

@@ -6,15 +6,15 @@ namespace Repository.Interfaces
 {
     public interface IDslikerRepository
     {
-        Task<List<Opinion>> GetAsync();
+        Task<List<Description>> GetAsync();
 
-        Task<Opinion> GetByIdAsync(string id);
+        Task<Description> GetByIdAsync(string id);
 
-        Task<Opinion> CreateAsync(Opinion opinion);
+        Task<Description> CreateAsync(Description opinion);
 
-        Task UpdateAsync(string id, Opinion opinion);
+        Task UpdateAsync(string id, Description opinion);
 
-        Task RemoveAsync(Opinion opinion);
+        Task RemoveAsync(Description opinion);
 
         Task RemoveByIdAsync(string id);
     }

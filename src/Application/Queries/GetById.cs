@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Application.Queries
 {
-    public class GetById : IRequest<Opinion>
+    public class GetById : IRequest<Description>
     {
         public string Id { get; set; }
 
