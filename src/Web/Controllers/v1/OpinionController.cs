@@ -1,12 +1,12 @@
 ﻿using Application.Commands;
 using Application.Queries;
-using Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using Web.ApiModels.v1.Request;
 
-namespace Web.Controllers
+namespace Web.Controllers.v1
 {
 
     [ApiController]
@@ -45,7 +45,7 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Opinion opinion)
+        public async Task<IActionResult> Post(OpinionRequest opinion)
         {
             var response = await _mediator.Send(new Create(opinion));
 
@@ -56,7 +56,7 @@ namespace Web.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(string id, Opinion opinion)
+        public async Task<IActionResult> Put(string id, OpinionRequest opinion)
         {
             opinion.Id = id;
             await _mediator.Send(new Update(id, opinion));
