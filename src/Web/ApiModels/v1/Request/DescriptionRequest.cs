@@ -22,7 +22,8 @@ namespace Web.ApiModels.v1.Request
         {
             return opn is null ? null : new Description()
             {
-                Id = string.IsNullOrWhiteSpace(opn.Id) ? Guid.NewGuid().ToString() : opn.Id,
+                Id = string.IsNullOrWhiteSpace(opn.Id) 
+                    ? Guid.NewGuid().ToString() : opn.Id,
                 Text = opn.Text,
                 Fingerprint = opn.Fingerprint,
                 Type = opn.Type,
